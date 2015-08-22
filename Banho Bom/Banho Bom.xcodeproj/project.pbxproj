@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		400D91FF1B8284860003020A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D91FE1B8284860003020A /* MapViewController.m */; };
+		400D92011B82886D0003020A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92001B82886D0003020A /* MapKit.framework */; };
+		400D92031B8288790003020A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92021B8288790003020A /* CoreLocation.framework */; };
+		400D92051B82888A0003020A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92041B82888A0003020A /* libsqlite3.dylib */; };
+		400D92071B82889B0003020A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92061B82889B0003020A /* SystemConfiguration.framework */; };
+		400D920B1B828A9A0003020A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D920A1B828A9A0003020A /* Reachability.m */; };
+		402293911B840971006AD0DA /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 402293901B840971006AD0DA /* Database.m */; };
 		405BE10F1B5947210050AC62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE10E1B5947210050AC62 /* main.m */; };
 		405BE1121B5947210050AC62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE1111B5947210050AC62 /* AppDelegate.m */; };
 		405BE1151B5947210050AC62 /* Banho_Bom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 405BE1131B5947210050AC62 /* Banho_Bom.xcdatamodeld */; };
@@ -15,6 +22,16 @@
 		405BE11D1B5947210050AC62 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405BE11C1B5947210050AC62 /* Images.xcassets */; };
 		405BE1201B5947210050AC62 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405BE11E1B5947210050AC62 /* LaunchScreen.xib */; };
 		405BE12C1B5947210050AC62 /* Banho_BomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE12B1B5947210050AC62 /* Banho_BomTests.m */; };
+		405E57F21B88C50E0069A8CE /* ClimaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405E57F11B88C50E0069A8CE /* ClimaViewController.m */; };
+		405E57F51B88F64F0069A8CE /* EstatisticaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405E57F41B88F64F0069A8CE /* EstatisticaViewController.m */; };
+		406B5E821B84AC68000CF770 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 406B5E811B84AC68000CF770 /* CustomAnnotation.m */; };
+		406B5E851B84B3F3000CF770 /* DetalhesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406B5E841B84B3F3000CF770 /* DetalhesViewController.m */; };
+		406B5E891B84D3FA000CF770 /* positive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E871B84D3FA000CF770 /* positive.jpg */; };
+		406B5E8A1B84D3FA000CF770 /* negative.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E881B84D3FA000CF770 /* negative.jpg */; };
+		406B5E8C1B84D48F000CF770 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E8B1B84D48F000CF770 /* location.png */; };
+		406B5E8E1B84D899000CF770 /* estatistica.png in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E8D1B84D899000CF770 /* estatistica.png */; };
+		406B5E911B84D90F000CF770 /* informacao.ico in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E8F1B84D90F000CF770 /* informacao.ico */; };
+		406B5E921B84D90F000CF770 /* tempo.png in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E901B84D90F000CF770 /* tempo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		400D91FD1B8284860003020A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		400D91FE1B8284860003020A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		400D92001B82886D0003020A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		400D92021B8288790003020A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		400D92041B82888A0003020A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		400D92061B82889B0003020A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		400D92091B828A9A0003020A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		400D920A1B828A9A0003020A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4022938F1B840971006AD0DA /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		402293901B840971006AD0DA /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		405BE1091B5947210050AC62 /* Banho Bom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Banho Bom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405BE10D1B5947210050AC62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405BE10E1B5947210050AC62 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -42,6 +69,20 @@
 		405BE1251B5947210050AC62 /* Banho BomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Banho BomTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405BE12A1B5947210050AC62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405BE12B1B5947210050AC62 /* Banho_BomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Banho_BomTests.m; sourceTree = "<group>"; };
+		405E57F01B88C50E0069A8CE /* ClimaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClimaViewController.h; sourceTree = "<group>"; };
+		405E57F11B88C50E0069A8CE /* ClimaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimaViewController.m; sourceTree = "<group>"; };
+		405E57F31B88F64F0069A8CE /* EstatisticaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EstatisticaViewController.h; path = ../EstatisticaViewController.h; sourceTree = "<group>"; };
+		405E57F41B88F64F0069A8CE /* EstatisticaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EstatisticaViewController.m; path = ../EstatisticaViewController.m; sourceTree = "<group>"; };
+		406B5E801B84AC68000CF770 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		406B5E811B84AC68000CF770 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		406B5E831B84B3F3000CF770 /* DetalhesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesViewController.h; sourceTree = "<group>"; };
+		406B5E841B84B3F3000CF770 /* DetalhesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetalhesViewController.m; sourceTree = "<group>"; };
+		406B5E871B84D3FA000CF770 /* positive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = positive.jpg; sourceTree = "<group>"; };
+		406B5E881B84D3FA000CF770 /* negative.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = negative.jpg; sourceTree = "<group>"; };
+		406B5E8B1B84D48F000CF770 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		406B5E8D1B84D899000CF770 /* estatistica.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estatistica.png; sourceTree = "<group>"; };
+		406B5E8F1B84D90F000CF770 /* informacao.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = informacao.ico; sourceTree = "<group>"; };
+		406B5E901B84D90F000CF770 /* tempo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +90,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400D92071B82889B0003020A /* SystemConfiguration.framework in Frameworks */,
+				400D92051B82888A0003020A /* libsqlite3.dylib in Frameworks */,
+				400D92031B8288790003020A /* CoreLocation.framework in Frameworks */,
+				400D92011B82886D0003020A /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +107,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400D92081B8288FE0003020A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				400D92061B82889B0003020A /* SystemConfiguration.framework */,
+				400D92041B82888A0003020A /* libsqlite3.dylib */,
+				400D92021B8288790003020A /* CoreLocation.framework */,
+				400D92001B82886D0003020A /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4031718D1B5984AF0005B7F3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				405BE1191B5947210050AC62 /* Main.storyboard */,
+				405BE11E1B5947210050AC62 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4031718E1B5984B90005B7F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4022938F1B840971006AD0DA /* Database.h */,
+				402293901B840971006AD0DA /* Database.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4031718F1B5984C20005B7F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				405BE1161B5947210050AC62 /* ViewController.h */,
+				405BE1171B5947210050AC62 /* ViewController.m */,
+				400D91FD1B8284860003020A /* MapViewController.h */,
+				400D91FE1B8284860003020A /* MapViewController.m */,
+				406B5E801B84AC68000CF770 /* CustomAnnotation.h */,
+				406B5E811B84AC68000CF770 /* CustomAnnotation.m */,
+				406B5E831B84B3F3000CF770 /* DetalhesViewController.h */,
+				406B5E841B84B3F3000CF770 /* DetalhesViewController.m */,
+				405E57F01B88C50E0069A8CE /* ClimaViewController.h */,
+				405E57F11B88C50E0069A8CE /* ClimaViewController.m */,
+				405E57F31B88F64F0069A8CE /* EstatisticaViewController.h */,
+				405E57F41B88F64F0069A8CE /* EstatisticaViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		405BE1001B5947200050AC62 = {
 			isa = PBXGroup;
 			children = (
 				405BE10B1B5947210050AC62 /* Banho Bom */,
 				405BE1281B5947210050AC62 /* Banho BomTests */,
 				405BE10A1B5947210050AC62 /* Products */,
+				400D92081B8288FE0003020A /* Frameworks */,
+				406B5E861B84D047000CF770 /* Imagens */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,13 +178,12 @@
 		405BE10B1B5947210050AC62 /* Banho Bom */ = {
 			isa = PBXGroup;
 			children = (
+				4031718F1B5984C20005B7F3 /* Controller */,
+				4031718E1B5984B90005B7F3 /* Model */,
+				4031718D1B5984AF0005B7F3 /* View */,
 				405BE1101B5947210050AC62 /* AppDelegate.h */,
 				405BE1111B5947210050AC62 /* AppDelegate.m */,
-				405BE1161B5947210050AC62 /* ViewController.h */,
-				405BE1171B5947210050AC62 /* ViewController.m */,
-				405BE1191B5947210050AC62 /* Main.storyboard */,
 				405BE11C1B5947210050AC62 /* Images.xcassets */,
-				405BE11E1B5947210050AC62 /* LaunchScreen.xib */,
 				405BE1131B5947210050AC62 /* Banho_Bom.xcdatamodeld */,
 				405BE10C1B5947210050AC62 /* Supporting Files */,
 			);
@@ -99,6 +193,8 @@
 		405BE10C1B5947210050AC62 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				400D92091B828A9A0003020A /* Reachability.h */,
+				400D920A1B828A9A0003020A /* Reachability.m */,
 				405BE10D1B5947210050AC62 /* Info.plist */,
 				405BE10E1B5947210050AC62 /* main.m */,
 			);
@@ -120,6 +216,19 @@
 				405BE12A1B5947210050AC62 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		406B5E861B84D047000CF770 /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				406B5E8F1B84D90F000CF770 /* informacao.ico */,
+				406B5E901B84D90F000CF770 /* tempo.png */,
+				406B5E8D1B84D899000CF770 /* estatistica.png */,
+				406B5E8B1B84D48F000CF770 /* location.png */,
+				406B5E871B84D3FA000CF770 /* positive.jpg */,
+				406B5E881B84D3FA000CF770 /* negative.jpg */,
+			);
+			name = Imagens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +312,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				405BE11B1B5947210050AC62 /* Main.storyboard in Resources */,
+				406B5E8A1B84D3FA000CF770 /* negative.jpg in Resources */,
 				405BE1201B5947210050AC62 /* LaunchScreen.xib in Resources */,
+				406B5E8E1B84D899000CF770 /* estatistica.png in Resources */,
+				406B5E891B84D3FA000CF770 /* positive.jpg in Resources */,
+				406B5E8C1B84D48F000CF770 /* location.png in Resources */,
+				406B5E911B84D90F000CF770 /* informacao.ico in Resources */,
 				405BE11D1B5947210050AC62 /* Images.xcassets in Resources */,
+				406B5E921B84D90F000CF770 /* tempo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,8 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				405BE1121B5947210050AC62 /* AppDelegate.m in Sources */,
+				405E57F21B88C50E0069A8CE /* ClimaViewController.m in Sources */,
 				405BE10F1B5947210050AC62 /* main.m in Sources */,
+				402293911B840971006AD0DA /* Database.m in Sources */,
+				406B5E821B84AC68000CF770 /* CustomAnnotation.m in Sources */,
+				405E57F51B88F64F0069A8CE /* EstatisticaViewController.m in Sources */,
+				400D91FF1B8284860003020A /* MapViewController.m in Sources */,
 				405BE1181B5947210050AC62 /* ViewController.m in Sources */,
+				400D920B1B828A9A0003020A /* Reachability.m in Sources */,
+				406B5E851B84B3F3000CF770 /* DetalhesViewController.m in Sources */,
 				405BE1151B5947210050AC62 /* Banho_Bom.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +544,7 @@
 				405BE1311B5947210050AC62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		405BE1321B5947210050AC62 /* Build configuration list for PBXNativeTarget "Banho BomTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +553,7 @@
 				405BE1341B5947210050AC62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

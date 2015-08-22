@@ -1,25 +1,325 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="37v-0R-S2x">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Mapa-->
+        <scene sceneID="Fx0-vJ-hK3">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="nHS-pu-y2v" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Hv1-EU-rkv"/>
+                        <viewControllerLayoutGuide type="bottom" id="y1x-ih-8uq"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <view key="view" contentMode="scaleToFill" id="jmR-Pt-Y4c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AQo-Jg-aa4">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nYC-oY-PXY">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Banho Bom" id="oTP-Rx-bzT">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="TcB-me-zg1">
+                                            <connections>
+                                                <action selector="refresh:" destination="nHS-pu-y2v" id="1Ur-RD-6oU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Mapa" image="location.png" id="TfK-dp-iks"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="AQo-Jg-aa4" id="Bqo-lm-Fcf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3r-B1-Acb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="195" y="-238"/>
+        </scene>
+        <!--Clima View Controller-->
+        <scene sceneID="e06-Rp-QJu">
+            <objects>
+                <viewController storyboardIdentifier="ClimaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="paO-9e-5jK" customClass="ClimaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Obs-Pb-9ZG"/>
+                        <viewControllerLayoutGuide type="bottom" id="NP3-gM-5sl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K2P-NX-d7C">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LaC-Gz-uVi">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Clima" id="lUj-OV-icn">
+                                        <barButtonItem key="leftBarButtonItem" title="Mapa" id="Oc5-hv-Sll">
+                                            <connections>
+                                                <segue destination="nHS-pu-y2v" kind="presentation" id="ZhE-Sp-utv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Teste" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J9R-S1-YqJ">
+                                <rect key="frame" x="0.0" y="90" width="320" height="47"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Humidade" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnh-c9-LIH">
+                                <rect key="frame" x="52" y="234" width="217" height="22"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sensação Térmica" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmN-X0-eYa">
+                                <rect key="frame" x="30" y="264" width="260" height="23"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtE-bC-q2z">
+                                <rect key="frame" x="62" y="145" width="196" height="81"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="77"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weather" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKf-yb-cc1">
+                                <rect key="frame" x="62" y="302" width="249" height="36"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Velocidade do Vento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jh-ze-Mie">
+                                <rect key="frame" x="8" y="353" width="305" height="29"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JEr-Cm-xNp">
+                                <rect key="frame" x="8" y="295" width="50" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data e Hora" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBE-aG-gor">
+                                <rect key="frame" x="8" y="431" width="305" height="110"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                <color key="textColor" red="0.1724538266" green="0.51067788309999995" blue="0.93124264479999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="dataEHoraDaColeta" destination="NBE-aG-gor" id="pQ7-UA-MUw"/>
+                        <outlet property="detailPraia" destination="AKf-yb-cc1" id="txl-8d-jb9"/>
+                        <outlet property="humiPraia" destination="Jnh-c9-LIH" id="wZL-Pv-mIK"/>
+                        <outlet property="iconWeatherPraia" destination="JEr-Cm-xNp" id="uhk-Yl-ZQ4"/>
+                        <outlet property="nomePraia" destination="J9R-S1-YqJ" id="fdX-mK-u8f"/>
+                        <outlet property="seTePraia" destination="UmN-X0-eYa" id="Mpw-vi-ZHa"/>
+                        <outlet property="tempPraia" destination="EtE-bC-q2z" id="nGZ-bj-a0u"/>
+                        <outlet property="velVentoPraia" destination="6jh-ze-Mie" id="MQr-if-nmt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h1R-DV-M4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="-238"/>
+        </scene>
+        <!--Estatistica View Controller-->
+        <scene sceneID="6EM-Ua-5Qv">
+            <objects>
+                <viewController storyboardIdentifier="EstatisticaViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Il8-om-s9P" customClass="EstatisticaViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4vu-SO-ygM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wvl-Ac-NM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AiU-ZP-def">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PX5-cE-kda">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Il8-om-s9P" id="YWb-cY-JZU"/>
+                                    <outlet property="delegate" destination="Il8-om-s9P" id="LCL-OC-TQw"/>
+                                </connections>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fOv-gu-Jgt">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="vG5-SS-H2S">
+                                        <barButtonItem key="leftBarButtonItem" title="Mapa" id="Fx8-bN-cgG">
+                                            <connections>
+                                                <segue destination="nHS-pu-y2v" kind="presentation" id="FxL-2r-zDz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="Il8-om-s9P" id="Rdt-p9-gSW"/>
+                                </connections>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbT-Qy-w35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="590" y="-741"/>
+        </scene>
+        <!--Index-->
+        <scene sceneID="eQy-y2-fgb">
+            <objects>
+                <viewController id="j12-UJ-ak6" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fHY-zG-xWi"/>
+                        <viewControllerLayoutGuide type="bottom" id="jMU-3X-Md0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NaT-8f-gMC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Index" id="TsT-Ha-cFq"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rz0-6k-GMT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195" y="-903"/>
+        </scene>
+        <!--Detalhes View Controller-->
+        <scene sceneID="AZC-bI-ogB">
+            <objects>
+                <viewController storyboardIdentifier="DetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bqI-rj-gqy" customClass="DetalhesViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8f-uD-K1V"/>
+                        <viewControllerLayoutGuide type="bottom" id="jBc-wH-0km"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hkh-pc-tzq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cuw-gx-0wc">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Detalhes da Estação" id="6R6-cy-lgp">
+                                        <barButtonItem key="leftBarButtonItem" title="Voltar" id="Bmi-7N-hTN">
+                                            <connections>
+                                                <segue destination="nHS-pu-y2v" kind="presentation" id="aGZ-BF-3tj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Estação" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYd-wj-X1T">
+                                <rect key="frame" x="25" y="283" width="271" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Praia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHX-xL-ANk">
+                                <rect key="frame" x="25" y="330" width="271" height="39"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XGb-1c-Fgd">
+                                <rect key="frame" x="32" y="384" width="107" height="78"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="agua nao boa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCq-e8-OaR">
+                                <rect key="frame" x="132" y="402" width="156" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cad-hF-913">
+                                <rect key="frame" x="221" y="485" width="75" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="estatistica.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="estaticaButton:" destination="bqI-rj-gqy" eventType="touchUpInside" id="bCK-Ad-bbW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kvv-TP-SXe">
+                                <rect key="frame" x="123" y="485" width="75" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="informacao.ico">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="informacaoButton:" destination="bqI-rj-gqy" eventType="touchUpInside" id="zP4-gY-XlI"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mb9-44-L4H">
+                                <rect key="frame" x="16" y="75" width="288" height="193"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o4N-B6-3iC">
+                                <rect key="frame" x="25" y="485" width="75" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <state key="normal" backgroundImage="tempo.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="tempoButton:" destination="bqI-rj-gqy" eventType="touchUpInside" id="Dru-mF-bqg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="estacaoLabel" destination="oYd-wj-X1T" id="WmM-Qh-hbT"/>
+                        <outlet property="imageOpcao" destination="XGb-1c-Fgd" id="UVw-pR-jD5"/>
+                        <outlet property="imagePraia" destination="mb9-44-L4H" id="QEu-l8-cgu"/>
+                        <outlet property="mensLabel" destination="VCq-e8-OaR" id="unk-mn-39y"/>
+                        <outlet property="praiaLabel" destination="MHX-xL-ANk" id="m5l-sz-wuw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oe4-bn-L22" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="597" y="-9"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="dKy-a3-24W">
+            <objects>
+                <tabBarController id="37v-0R-S2x" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="hVe-k1-iRx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="j12-UJ-ak6" kind="relationship" relationship="viewControllers" id="6Nh-I6-sWU"/>
+                        <segue destination="nHS-pu-y2v" kind="relationship" relationship="viewControllers" id="Ohh-5j-NYP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0va-Ws-LQh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-374" y="-664"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="estatistica.png" width="256" height="256"/>
+        <image name="informacao.ico" width="256" height="256"/>
+        <image name="location.png" width="30" height="30"/>
+        <image name="tempo.png" width="256" height="256"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="FxL-2r-zDz"/>
+    </inferredMetricsTieBreakers>
 </document>
