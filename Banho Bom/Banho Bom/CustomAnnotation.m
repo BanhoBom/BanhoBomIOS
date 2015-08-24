@@ -10,11 +10,16 @@
 
 @implementation CustomAnnotation
 
-@synthesize coordinate,title,subtitle;
+@synthesize coordinate, title, subtitle;
+@synthesize nomePraia, descricaoPraia, idEstacao, statusEstacao;
+
 
 -(void) dealloc{
-    self.title = nil;
-    self.subtitle = nil;
+    
+    self.nomePraia = nil;
+    self.descricaoPraia = nil;
+    self.idEstacao = nil;
+    self.statusEstacao = nil;
     
 }
 

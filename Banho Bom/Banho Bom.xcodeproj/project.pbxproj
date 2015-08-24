@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		400D91FF1B8284860003020A /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D91FE1B8284860003020A /* MapViewController.m */; };
 		400D92011B82886D0003020A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92001B82886D0003020A /* MapKit.framework */; };
 		400D92031B8288790003020A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92021B8288790003020A /* CoreLocation.framework */; };
 		400D92051B82888A0003020A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92041B82888A0003020A /* libsqlite3.dylib */; };
 		400D92071B82889B0003020A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D92061B82889B0003020A /* SystemConfiguration.framework */; };
 		400D920B1B828A9A0003020A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D920A1B828A9A0003020A /* Reachability.m */; };
+		4021BB0A1B8A696100E4FA1F /* MapViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4021BB091B8A696100E4FA1F /* MapViewTest.m */; };
+		4021BB0C1B8ACB4A00E4FA1F /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4021BB0B1B8ACB4A00E4FA1F /* MapViewController.m */; };
 		402293911B840971006AD0DA /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = 402293901B840971006AD0DA /* Database.m */; };
 		405BE10F1B5947210050AC62 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE10E1B5947210050AC62 /* main.m */; };
 		405BE1121B5947210050AC62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE1111B5947210050AC62 /* AppDelegate.m */; };
@@ -24,6 +25,8 @@
 		405BE12C1B5947210050AC62 /* Banho_BomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 405BE12B1B5947210050AC62 /* Banho_BomTests.m */; };
 		405E57F21B88C50E0069A8CE /* ClimaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405E57F11B88C50E0069A8CE /* ClimaViewController.m */; };
 		405E57F51B88F64F0069A8CE /* EstatisticaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405E57F41B88F64F0069A8CE /* EstatisticaViewController.m */; };
+		405E57F71B8902360069A8CE /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 405E57F61B8902360069A8CE /* home.png */; };
+		405E57F91B8905060069A8CE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 405E57F81B8905060069A8CE /* logo.png */; };
 		406B5E821B84AC68000CF770 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 406B5E811B84AC68000CF770 /* CustomAnnotation.m */; };
 		406B5E851B84B3F3000CF770 /* DetalhesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 406B5E841B84B3F3000CF770 /* DetalhesViewController.m */; };
 		406B5E891B84D3FA000CF770 /* positive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E871B84D3FA000CF770 /* positive.jpg */; };
@@ -46,13 +49,14 @@
 
 /* Begin PBXFileReference section */
 		400D91FD1B8284860003020A /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
-		400D91FE1B8284860003020A /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		400D92001B82886D0003020A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		400D92021B8288790003020A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		400D92041B82888A0003020A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		400D92061B82889B0003020A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		400D92091B828A9A0003020A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		400D920A1B828A9A0003020A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		4021BB091B8A696100E4FA1F /* MapViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewTest.m; sourceTree = "<group>"; };
+		4021BB0B1B8ACB4A00E4FA1F /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		4022938F1B840971006AD0DA /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
 		402293901B840971006AD0DA /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
 		405BE1091B5947210050AC62 /* Banho Bom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Banho Bom.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +77,8 @@
 		405E57F11B88C50E0069A8CE /* ClimaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClimaViewController.m; sourceTree = "<group>"; };
 		405E57F31B88F64F0069A8CE /* EstatisticaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EstatisticaViewController.h; path = ../EstatisticaViewController.h; sourceTree = "<group>"; };
 		405E57F41B88F64F0069A8CE /* EstatisticaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EstatisticaViewController.m; path = ../EstatisticaViewController.m; sourceTree = "<group>"; };
+		405E57F61B8902360069A8CE /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		405E57F81B8905060069A8CE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		406B5E801B84AC68000CF770 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		406B5E811B84AC68000CF770 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		406B5E831B84B3F3000CF770 /* DetalhesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetalhesViewController.h; sourceTree = "<group>"; };
@@ -142,7 +148,7 @@
 				405BE1161B5947210050AC62 /* ViewController.h */,
 				405BE1171B5947210050AC62 /* ViewController.m */,
 				400D91FD1B8284860003020A /* MapViewController.h */,
-				400D91FE1B8284860003020A /* MapViewController.m */,
+				4021BB0B1B8ACB4A00E4FA1F /* MapViewController.m */,
 				406B5E801B84AC68000CF770 /* CustomAnnotation.h */,
 				406B5E811B84AC68000CF770 /* CustomAnnotation.m */,
 				406B5E831B84B3F3000CF770 /* DetalhesViewController.h */,
@@ -205,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				405BE12B1B5947210050AC62 /* Banho_BomTests.m */,
+				4021BB091B8A696100E4FA1F /* MapViewTest.m */,
 				405BE1291B5947210050AC62 /* Supporting Files */,
 			);
 			path = "Banho BomTests";
@@ -221,6 +228,8 @@
 		406B5E861B84D047000CF770 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				405E57F81B8905060069A8CE /* logo.png */,
+				405E57F61B8902360069A8CE /* home.png */,
 				406B5E8F1B84D90F000CF770 /* informacao.ico */,
 				406B5E901B84D90F000CF770 /* tempo.png */,
 				406B5E8D1B84D899000CF770 /* estatistica.png */,
@@ -313,10 +322,12 @@
 			files = (
 				405BE11B1B5947210050AC62 /* Main.storyboard in Resources */,
 				406B5E8A1B84D3FA000CF770 /* negative.jpg in Resources */,
+				405E57F91B8905060069A8CE /* logo.png in Resources */,
 				405BE1201B5947210050AC62 /* LaunchScreen.xib in Resources */,
 				406B5E8E1B84D899000CF770 /* estatistica.png in Resources */,
 				406B5E891B84D3FA000CF770 /* positive.jpg in Resources */,
 				406B5E8C1B84D48F000CF770 /* location.png in Resources */,
+				405E57F71B8902360069A8CE /* home.png in Resources */,
 				406B5E911B84D90F000CF770 /* informacao.ico in Resources */,
 				405BE11D1B5947210050AC62 /* Images.xcassets in Resources */,
 				406B5E921B84D90F000CF770 /* tempo.png in Resources */,
@@ -343,11 +354,11 @@
 				402293911B840971006AD0DA /* Database.m in Sources */,
 				406B5E821B84AC68000CF770 /* CustomAnnotation.m in Sources */,
 				405E57F51B88F64F0069A8CE /* EstatisticaViewController.m in Sources */,
-				400D91FF1B8284860003020A /* MapViewController.m in Sources */,
 				405BE1181B5947210050AC62 /* ViewController.m in Sources */,
 				400D920B1B828A9A0003020A /* Reachability.m in Sources */,
 				406B5E851B84B3F3000CF770 /* DetalhesViewController.m in Sources */,
 				405BE1151B5947210050AC62 /* Banho_Bom.xcdatamodeld in Sources */,
+				4021BB0C1B8ACB4A00E4FA1F /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405BE12C1B5947210050AC62 /* Banho_BomTests.m in Sources */,
+				4021BB0A1B8A696100E4FA1F /* MapViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

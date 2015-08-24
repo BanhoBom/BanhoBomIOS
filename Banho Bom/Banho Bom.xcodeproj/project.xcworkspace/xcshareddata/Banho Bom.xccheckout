@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DCB9DD27-CC7D-4A71-9565-2EF0F50D2391</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Banho Bom</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EDEBC849C78FB3F822E5D28FB759E62317073504</key>
 		<string>https://github.com/BanhoBom/BanhoBomIOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Banho Bom/Banho Bom.xcodeproj</string>
+	<string>Banho Bom/Banho Bom.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EDEBC849C78FB3F822E5D28FB759E62317073504</key>

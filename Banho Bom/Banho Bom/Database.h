@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSString *statusOfAddingToDB;
 @property (strong, nonatomic) NSString *databasePath;
 - (void) createDataBase;
-- (void) saveData:(NSString*)nome addLat:(NSString*)latitude addLong:(NSString*)longitude addBaln:(NSString*)balneabilidade addCodPraia:(NSString*)codPraia;
+- (void) saveData:(NSString*)nomePraia addLat:(NSString*)latitude addLong:(NSString*)longitude addBaln:(NSString*)status addCodPraia:(NSString*)codEstacao;
 //- (void) deleteData;
 -(NSMutableArray*) findData;
 

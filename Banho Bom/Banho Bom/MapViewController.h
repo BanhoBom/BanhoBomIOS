@@ -14,6 +14,8 @@
 @property (nonatomic, retain) NSMutableArray *praiasLista, *annotationArray;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+
 - (IBAction)refresh:(id)sender;
+- (IBAction)historico:(id)sender;
 
 @end

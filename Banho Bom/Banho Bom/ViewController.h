@@ -11,6 +11,7 @@
 
 @interface ViewController : UIViewController 
 
+- (IBAction)sobreBB:(id)sender;
 
 @end
 

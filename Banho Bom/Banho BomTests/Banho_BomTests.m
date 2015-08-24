@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "ViewController.h"
+#import "MapViewController.h"
+#import "CustomAnnotation.h"
+#import "DetalhesViewController.h"
+#import "ClimaViewController.h"
+#import "EstatisticaViewController.h"
+
 
 @interface Banho_BomTests : XCTestCase
 
@@ -35,6 +42,36 @@
     [self measureBlock:^{
         // Put the code you want to measure the time of here.
     }];
+}
+
+-(void)testViewControllerExists{
+    ViewController *vc = [[ViewController alloc] init];
+    XCTAssertNotNil(vc, @"ViewController Existe");
+}
+
+-(void)testMapViewControllerExists{
+    MapViewController *mvc = [[MapViewController alloc] init];
+    XCTAssertNotNil(mvc, @"MapViewController Existe");
+}
+
+-(void)testCustomAnnotationExists{
+    CustomAnnotation *ca = [[CustomAnnotation alloc] init];
+    XCTAssertNotNil(ca, @"CustomAnnotation Existe");
+}
+
+-(void)testDetalhesViewControllerExists{
+    DetalhesViewController *dvc = [[DetalhesViewController alloc] init];
+    XCTAssertNotNil(dvc, @"DetalhesViewController Existe");
+}
+
+-(void)testClimaViewControllerExists{
+    ClimaViewController *cvc = [[ClimaViewController alloc] init];
+    XCTAssertNotNil(cvc, @"ClimaViewController Existe");
+}
+
+-(void)testEstatisticaViewControllerExists{
+    EstatisticaViewController *evc = [[EstatisticaViewController alloc] init];
+    XCTAssertNotNil(evc, @"EstatisticaViewController Existe");
 }
 
 @end

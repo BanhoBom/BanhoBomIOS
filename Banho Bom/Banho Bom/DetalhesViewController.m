@@ -20,7 +20,9 @@
 @synthesize imagePraia, imageOpcao;
 @synthesize estacaoLabel, praiaLabel, mensLabel;
 @synthesize title, subtitulo;
-@synthesize latitude, longitude;
+@synthesize latitude, longitude, nomePraia, descricaoPraia, idEstacao, statusEstacao;
+
+
 
 
 - (void)viewDidLoad {
@@ -29,16 +31,19 @@
     latitude = coordinateMap->latitude;
     longitude= coordinateMap->longitude;
     
-    NSLog(@" lat %f, long %f", latitude, longitude);
+    //self.praiaLabel.text = title;
     
-    self.praiaLabel.text = title;
+    self.estacaoLabel.text = idEstacao;
+    self.praiaLabel.text = nomePraia;
+    
     [self status];
     
     
 }
 
 -(void)status{
-    if ([subtitulo isEqualToString:@"Praia Própria para Banho"]) {
+
+    if ([statusEstacao isEqualToString:@"1"]) {
         self.mensLabel.text = @"Água Boa";
         imageOpcao.image = [UIImage imageNamed:@"positive.jpg"];
     } else {
@@ -50,13 +55,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-
-- (IBAction)estaticaButton:(id)sender {
-    EstatisticaViewController *estatisticaViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EstatisticaViewController"];
-    estatisticaViewController.title = title;
-    [self presentViewController:estatisticaViewController animated:YES completion:nil];
 }
 
 - (IBAction)tempoButton:(id)sender {

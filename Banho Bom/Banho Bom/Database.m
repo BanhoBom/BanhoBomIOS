@@ -36,7 +36,7 @@
     NSString *docsDir = dirPaths[0];
     
     // Build the path to the database file
-    databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"AguaAzulDB.db"]];
+    databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:@"BanhoBomDB.db"]];
     NSLog(@"DB Path: %@", databasePath);
     
     NSFileManager *filemgr = [NSFileManager defaultManager];
@@ -46,7 +46,7 @@
         if (sqlite3_open(dbpath, &myDatabase) == SQLITE_OK) {
             char *errMsg;
             
-            NSString *createSQL = [NSString stringWithFormat: @"CREATE TABLE PRAIATABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, CODIGOPRAIA TEXT, NOME TEXT, LATITUDE TEXT, LONGITUDE TEXT, BALNEABILIDADE TEXT)"];
+            NSString *createSQL = [NSString stringWithFormat: @"CREATE TABLE PRAIATABLE (ID INTEGER PRIMARY KEY AUTOINCREMENT, CODIGOESTACAO TEXT, NOMEPRAIA TEXT, LATITUDE TEXT, LONGITUDE TEXT, STATUS TEXT)"];
             
             const char *create_stmt = [createSQL UTF8String];
             
@@ -80,13 +80,13 @@
         }
     }
 }
-- (void) saveData:(NSString*)nome addLat:(NSString*)latitude addLong:(NSString*)longitude addBaln:(NSString*)balneabilidade addCodPraia:(NSString*)codPraia{
+- (void) saveData:(NSString*)nomePraia addLat:(NSString*)latitude addLong:(NSString*)longitude addBaln:(NSString*)status addCodPraia:(NSString*)codEstacao{
     //sqlite3_stmt *statement;
     const char *dbpath = [databasePath UTF8String];
     
     if (sqlite3_open(dbpath, &myDatabase) == SQLITE_OK) {
         
-        NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO PRAIATABLE (CODIGOPRAIA, NOME, LATITUDE, LONGITUDE, BALNEABILIDADE) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\")", codPraia, nome, latitude, longitude, balneabilidade];
+        NSString *insertSQL = [NSString stringWithFormat: @"INSERT INTO PRAIATABLE (CODIGOESTACAO, NOMEPRAIA, LATITUDE, LONGITUDE, STATUS) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\")", codEstacao, nomePraia, latitude, longitude, status];
         
         const char *insert_stmt = [insertSQL UTF8String];
         char *err;
@@ -106,33 +106,33 @@
     NSMutableArray *praias = [[NSMutableArray alloc] init];
     NSMutableDictionary *dataStored = [[NSMutableDictionary alloc] init];
     
-    NSString *codigo;
-    NSString *nome;
+    NSString *codEstacao;
+    NSString *nomePraia;
     NSString *lat;
     NSString *lon;
-    NSString *baln;
+    NSString *status;
     
     const char *dbpath = [databasePath UTF8String];
     sqlite3_stmt *statement;
     
     if (sqlite3_open(dbpath, &myDatabase) == SQLITE_OK) {
-        NSString *selectSQL = [NSString stringWithFormat:@"SELECT CODIGOPRAIA, NOME, LATITUDE, LONGITUDE, BALNEABILIDADE FROM PRAIATABLE"];
+        NSString *selectSQL = [NSString stringWithFormat:@"SELECT CODIGOESTACAO, NOMEPRAIA, LATITUDE, LONGITUDE, STATUS FROM PRAIATABLE"];
         const char *select_stmt = [selectSQL UTF8String];
         if (sqlite3_prepare_v2(myDatabase, select_stmt, -1, &statement, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
-                codigo = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)];
-                nome = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
+                codEstacao = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)];
+                nomePraia = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
                 lat = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
                 lon = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)];
-                baln = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
+                status = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
                 
                 //NSLog(@"TESTES: %@, %@, %@, %@, %@", codigo, nome, lat, lon, baln);
                 
-                [dataStored setObject:codigo forKey:@"codigo"];
-                [dataStored setObject:nome forKey:@"nome"];
+                [dataStored setObject:codEstacao forKey:@"codEstacao"];
+                [dataStored setObject:nomePraia forKey:@"nomePraia"];
                 [dataStored setObject:lat forKey:@"lat"];
                 [dataStored setObject:lon forKey:@"lon"];
-                [dataStored setObject:baln forKey:@"baln"];
+                [dataStored setObject:status forKey:@"status"];
                 
                 [praias addObject:[dataStored copy]];
             }

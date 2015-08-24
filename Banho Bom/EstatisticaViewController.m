@@ -14,13 +14,17 @@
 
 @implementation EstatisticaViewController
 
-@synthesize title;
+@synthesize historico, dataStored;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    historico = [[NSMutableArray alloc] init];
+    dataStored = [[NSMutableDictionary alloc] init];
 
-    self.navigationItem.title = title;
-    NSLog(@"Title = %@", title);
+    
+    [self carregarJson];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,12 +33,27 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                                   reuseIdentifier:@""];
+   
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@""];
+    //static NSString *CellIdentifier = @"Cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"ROW %ld" , (long)indexPath.row + 1];
-    cell.imageView.image = [UIImage imageNamed:@"estatistica.png"];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NSString *coletas = [self.historico objectAtIndex:indexPath.row];
+    [cell.textLabel setText:[coletas valueForKey:@"cod"]];
+    [cell.detailTextLabel setText:[coletas valueForKey:@"dat"]];
+    
+    NSString *comp = [coletas valueForKey: @"sta"];
+    
+    if ([comp isEqualToString:@"1"]) {
+        cell.imageView.image = [UIImage imageNamed:@"positive.jpg"];
+    }else
+        cell.imageView.image = [UIImage imageNamed:@"negative.jpg"];
+    
+    
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@",];
+    //NSLog(@"--------");
+    //cell.imageView.image = [UIImage imageNamed:@"estatistica.png"];
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -43,8 +62,58 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.historico.count;
 }
+
+-(void)carregarJson{
+    // Prepare the link that is going to be used on the GET request
+    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/banhobom3/rest/cliente/coletasMobile"];
+    
+    // Prepare the request object
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                            timeoutInterval:30];
+    
+    // Prepare the variables for the JSON response
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *error;
+    
+    // Make synchronous request
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
+                                    returningResponse:&response
+                                                error:&error];
+    
+    // Construct a Array around the Data from the response
+    NSArray* object = [NSJSONSerialization
+                       JSONObjectWithData:urlData
+                       options:0
+                       error:&error];
+    
+    
+    // Iterate through the object and print desired results
+    for (int i=0; i < [object count]; i++) {
+        
+        NSString *codEstacao = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"codigoEstacao"], nil];
+        //NSLog(@"Codigo Estacao: %@", codEstacao);
+        
+        NSString *data = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"data"], nil];
+        //NSLog(@"Data Coleta: %@", data);
+        
+        NSString *status = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"status"], nil];
+        NSLog(@"Status: %@", status);
+        
+        [dataStored setObject:codEstacao forKey:@"cod"];
+        [dataStored setObject:data forKey:@"dat"];
+        [dataStored setObject:status forKey:@"sta"];
+        
+        [historico addObject:[dataStored copy]];
+    }
+    //turn off the network indicator in the status bar
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+}
+
 
 
 @end

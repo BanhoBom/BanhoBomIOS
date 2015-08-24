@@ -19,12 +19,17 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageOpcao;
 @property (strong, nonatomic) IBOutlet UILabel *mensLabel;
 
-- (IBAction)estaticaButton:(id)sender;
 - (IBAction)tempoButton:(id)sender;
 - (IBAction)informacaoButton:(id)sender;
 
-@property (strong, nonatomic) NSString* subtitulo;
-
 @property (nonatomic) double latitude, longitude;
+@property (strong, nonatomic) NSString* nomePraia;
+@property (strong, nonatomic) NSString* descricaoPraia;
+@property (strong, nonatomic) NSString* statusEstacao;
+@property (strong, nonatomic) NSString* idEstacao;
+
+
+@property (strong, nonatomic) NSString* subtitulo; // Nao Precisa
+
 
 @end

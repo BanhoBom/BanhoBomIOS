@@ -10,4 +10,7 @@
 
 @interface EstatisticaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property(strong, nonatomic) NSMutableArray *historico;
+@property(strong, nonatomic) NSMutableDictionary *dataStored;
+
 @end
