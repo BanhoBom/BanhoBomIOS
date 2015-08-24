@@ -21,7 +21,7 @@
 @synthesize praiaLabel, mensLabel;
 @synthesize title, subtitulo;
 @synthesize latitude, longitude, nomePraia, descricaoPraia, idEstacao, statusEstacao;
-@synthesize descricao, dataStored;
+@synthesize descricao, dataStored, tempNome2;
 
 
 - (void)viewDidLoad {
@@ -33,11 +33,15 @@
     //self.praiaLabel.text = title;
     
     self.praiaLabel.text = title;
+
+    NSArray *Array = [title componentsSeparatedByString:@"/ "];
+    tempNome2 = [Array objectAtIndex:1];
     
     descricao = [[NSMutableArray alloc] init];
     dataStored = [[NSMutableDictionary alloc] init];
     
     [self status];
+    [self imagens];
     
     
 }
@@ -72,7 +76,7 @@
 - (IBAction)informacaoButton:(id)sender {
     
     // Prepare the link that is going to be used on the GET request
-    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/banhobom3/rest/cliente/coletasMobile"];
+    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/bb-producao/rest/cliente/praias"];
     
     // Prepare the request object
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
@@ -99,35 +103,52 @@
     // Iterate through the object and print desired results
     for (int i=0; i < [object count]; i++) {
         
+        
+        
         NSString *no = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"nome"], nil];
         NSString *desc = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"descricao"], nil];
         
-        [dataStored setObject:no forKey:@"nome"];
-        [dataStored setObject:desc forKey:@"descricao"];
-        
-        [descricao addObject:[dataStored copy]];
-    }
-    //turn off the network indicator in the status bar
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    
-    
-    for (NSDictionary *row in descricao) {
-        if ([row objectForKey:@"nome"] == nomePraia) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nomePraia
-                                                            message:@"Alguma Coisa sobre a Praia"
+        if ([no isEqual:tempNome2]) {
+            [dataStored setObject:no forKey:@"nome"];
+            [dataStored setObject:desc forKey:@"descricao"];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:no
+                                                            message:desc
                                                            delegate:nil
                                                   cancelButtonTitle:nil
                                                   otherButtonTitles:@"OK!",nil];
             [alert show];
-        }
+            
+            [descricao addObject:[dataStored copy]];
+        }else{
+}
     }
-    
 }
 
 - (IBAction)historicoButton:(id)sender {
     EstatisticaViewController *estatisticaViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EstatisticaViewController"];
     estatisticaViewController.title = title;
     [self presentViewController:estatisticaViewController animated:YES completion:nil];
+}
+
+-(void) imagens{
+    NSLog(@"Praia:%@", tempNome2);
+    if ([tempNome2 isEqual:@"Pipa"]) {
+        imagePraia.image = [UIImage imageNamed:@"pipa.jpg"];
+    }else if([tempNome2 isEqual:@"Genipabu"]){
+        imagePraia.image = [UIImage imageNamed:@"Genipabu.jpg"];
+    }else if ([tempNome2 isEqual:@"Redinha"] || [tempNome2 isEqual:@"Redinha Nova"]) {
+        imagePraia.image = [UIImage imageNamed:@"Redinha.jpg"];
+    }else if ([tempNome2 isEqual:@"Praia do Forte"]){
+        imagePraia.image = [UIImage imageNamed:@"Forte.jpg"];
+    }else if ([tempNome2 isEqual:@"Praia do Meio"]) {
+        imagePraia.image = [UIImage imageNamed:@"Praia do Meio.jpg"];
+    }else if ([tempNome2 isEqual:@"Ponta Negra"]) {
+        imagePraia.image = [UIImage imageNamed:@"Ponta Negra.jpg"];
+    }
+        else{
+        imagePraia.image = [UIImage imageNamed:@"praia.jpg"];
+    }
+    
 }
 @end

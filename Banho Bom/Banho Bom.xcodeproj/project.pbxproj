@@ -35,6 +35,13 @@
 		406B5E8E1B84D899000CF770 /* estatistica.png in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E8D1B84D899000CF770 /* estatistica.png */; };
 		406B5E911B84D90F000CF770 /* informacao.ico in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E8F1B84D90F000CF770 /* informacao.ico */; };
 		406B5E921B84D90F000CF770 /* tempo.png in Resources */ = {isa = PBXBuildFile; fileRef = 406B5E901B84D90F000CF770 /* tempo.png */; };
+		40F591A01B8B954E00985245 /* praia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F591991B8B954E00985245 /* praia.jpg */; };
+		40F591A11B8B954E00985245 /* pipa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919A1B8B954E00985245 /* pipa.jpg */; };
+		40F591A21B8B954E00985245 /* Genipabu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919B1B8B954E00985245 /* Genipabu.jpg */; };
+		40F591A31B8B954E00985245 /* Redinha.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919C1B8B954E00985245 /* Redinha.jpg */; };
+		40F591A41B8B954E00985245 /* Forte.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919D1B8B954E00985245 /* Forte.jpg */; };
+		40F591A51B8B954E00985245 /* Praia do Meio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919E1B8B954E00985245 /* Praia do Meio.jpg */; };
+		40F591A61B8B954E00985245 /* Ponta Negra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 40F5919F1B8B954E00985245 /* Ponta Negra.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +96,13 @@
 		406B5E8D1B84D899000CF770 /* estatistica.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estatistica.png; sourceTree = "<group>"; };
 		406B5E8F1B84D90F000CF770 /* informacao.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = informacao.ico; sourceTree = "<group>"; };
 		406B5E901B84D90F000CF770 /* tempo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tempo.png; sourceTree = "<group>"; };
+		40F591991B8B954E00985245 /* praia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = praia.jpg; sourceTree = "<group>"; };
+		40F5919A1B8B954E00985245 /* pipa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pipa.jpg; sourceTree = "<group>"; };
+		40F5919B1B8B954E00985245 /* Genipabu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Genipabu.jpg; sourceTree = "<group>"; };
+		40F5919C1B8B954E00985245 /* Redinha.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Redinha.jpg; sourceTree = "<group>"; };
+		40F5919D1B8B954E00985245 /* Forte.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Forte.jpg; sourceTree = "<group>"; };
+		40F5919E1B8B954E00985245 /* Praia do Meio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Praia do Meio.jpg"; sourceTree = "<group>"; };
+		40F5919F1B8B954E00985245 /* Ponta Negra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Ponta Negra.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +242,7 @@
 		406B5E861B84D047000CF770 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				40F591981B8B953500985245 /* Praias */,
 				405E57F81B8905060069A8CE /* logo.png */,
 				405E57F61B8902360069A8CE /* home.png */,
 				406B5E8F1B84D90F000CF770 /* informacao.ico */,
@@ -238,6 +253,20 @@
 				406B5E881B84D3FA000CF770 /* negative.jpg */,
 			);
 			name = Imagens;
+			sourceTree = "<group>";
+		};
+		40F591981B8B953500985245 /* Praias */ = {
+			isa = PBXGroup;
+			children = (
+				40F591991B8B954E00985245 /* praia.jpg */,
+				40F5919A1B8B954E00985245 /* pipa.jpg */,
+				40F5919B1B8B954E00985245 /* Genipabu.jpg */,
+				40F5919C1B8B954E00985245 /* Redinha.jpg */,
+				40F5919D1B8B954E00985245 /* Forte.jpg */,
+				40F5919E1B8B954E00985245 /* Praia do Meio.jpg */,
+				40F5919F1B8B954E00985245 /* Ponta Negra.jpg */,
+			);
+			name = Praias;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,15 +351,22 @@
 			files = (
 				405BE11B1B5947210050AC62 /* Main.storyboard in Resources */,
 				406B5E8A1B84D3FA000CF770 /* negative.jpg in Resources */,
+				40F591A21B8B954E00985245 /* Genipabu.jpg in Resources */,
 				405E57F91B8905060069A8CE /* logo.png in Resources */,
+				40F591A31B8B954E00985245 /* Redinha.jpg in Resources */,
 				405BE1201B5947210050AC62 /* LaunchScreen.xib in Resources */,
 				406B5E8E1B84D899000CF770 /* estatistica.png in Resources */,
+				40F591A01B8B954E00985245 /* praia.jpg in Resources */,
+				40F591A41B8B954E00985245 /* Forte.jpg in Resources */,
+				40F591A51B8B954E00985245 /* Praia do Meio.jpg in Resources */,
 				406B5E891B84D3FA000CF770 /* positive.jpg in Resources */,
 				406B5E8C1B84D48F000CF770 /* location.png in Resources */,
 				405E57F71B8902360069A8CE /* home.png in Resources */,
 				406B5E911B84D90F000CF770 /* informacao.ico in Resources */,
+				40F591A11B8B954E00985245 /* pipa.jpg in Resources */,
 				405BE11D1B5947210050AC62 /* Images.xcassets in Resources */,
 				406B5E921B84D90F000CF770 /* tempo.png in Resources */,
+				40F591A61B8B954E00985245 /* Ponta Negra.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

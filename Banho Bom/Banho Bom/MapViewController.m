@@ -18,8 +18,6 @@
 
 @end
 
-#define SERVICEURL @"http://54.149.41.128/AguaAzulWS/praia/listar"
-
 @implementation MapViewController{
     CustomAnnotation *CA;
 ;
@@ -74,23 +72,22 @@
     for (int i=0; i < [object count]; i++) {
         
         NSString *codEstacao = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"codigo"], nil];
-        NSLog(@"Codigo Estacao: %@", codEstacao);
+       // NSLog(@"Codigo Estacao: %@", codEstacao);
         
         NSString *nomePraia = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"praia"], nil];
-        NSLog(@"Nome Praia: %@", nomePraia);
+       // NSLog(@"Nome Praia: %@", nomePraia);
         
         NSString *latitude = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"latitude"], nil];
-        NSLog(@"Latitude: %@", latitude);
+        //NSLog(@"Latitude: %@", latitude);
         
         NSString *longitude = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"longitude"], nil];
-        NSLog(@"Longitude: %@", longitude);
+        //NSLog(@"Longitude: %@", longitude);
         
         NSString *status = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"status"], nil];
-        NSLog(@"Status: %@", status);
+        //NSLog(@"Status: %@", status);
 
         [db saveData:nomePraia addLat:latitude addLong:longitude addBaln:status addCodPraia:codEstacao];
         
-        NSLog(@"------");
     }
     //turn off the network indicator in the status bar
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
@@ -107,9 +104,11 @@
 
 -(void)visualizarMap{
     
-    //self.locationManager = [[CLLocationManager alloc] init];
-    //self.locationManager.delegate = self;
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startUpdatingLocation];
     self.mapView.delegate = self;
     [self.mapView setMapType:MKMapTypeHybrid];
     
@@ -133,6 +132,19 @@
 }
 
 -(void)mapWithAnnotation{
+    
+    MKCoordinateRegion myRegion;
+    CLLocationCoordinate2D myCoordinate;
+    myCoordinate.latitude  = self.locationManager.location.coordinate.latitude;
+    myCoordinate.longitude = self.locationManager.location.coordinate.longitude;
+    MKCoordinateSpan mySpan;
+    mySpan.latitudeDelta= 0.5;
+    mySpan.longitudeDelta = 0.5;
+    myRegion.center = myCoordinate;
+    myRegion.span = mySpan;
+    
+    [mapView setRegion:myRegion animated:YES];
+    
     
     annotationArray = [[NSMutableArray alloc] init];
     
@@ -158,7 +170,7 @@
          */
         
         
-        CA.title = [NSString stringWithFormat:@"%@ %@", codEstacao, nomePraia];
+        CA.title = [NSString stringWithFormat:@"%@ / %@", codEstacao, nomePraia];
         //CA.title = codEstacao;
         CA.idEstacao = codEstacao;
         CA.nomePraia = nomePraia;
@@ -183,29 +195,32 @@
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
-    
-    MKPinAnnotationView *MyPin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
-    MyPin.canShowCallout = YES;
-    MyPin.animatesDrop = YES;
-    MyPin.selected = YES;
-    MyPin.userInteractionEnabled = YES;
-
-    
-    if ([annotation.subtitle isEqualToString:@"Praia Própria para Banho"]) {
-        MyPin.pinColor = MKPinAnnotationColorGreen;
-    }else if ([annotation.subtitle isEqualToString:@"Praia Imprópria para Banho"]){
-        MyPin.pinColor = MKPinAnnotationColorRed;
+    if (annotation == self.mapView.userLocation) {
+        return nil;
     }else{
-        MyPin.pinColor = MKPinAnnotationColorPurple;
-    }
-    
-    UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
-    MyPin.rightCalloutAccessoryView = rightButton;
-    MyPin.rightCalloutAccessoryView.tag = 1;
+        MKPinAnnotationView *MyPin=[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"current"];
+        MyPin.canShowCallout = YES;
+        MyPin.animatesDrop = YES;
+        MyPin.selected = YES;
+        MyPin.userInteractionEnabled = YES;
 
     
-    return MyPin;
+        if ([annotation.subtitle isEqualToString:@"Praia Própria para Banho"]) {
+            MyPin.pinColor = MKPinAnnotationColorGreen;
+        }else if ([annotation.subtitle isEqualToString:@"Praia Imprópria para Banho"]){
+            MyPin.pinColor = MKPinAnnotationColorRed;
+        }else{
+            MyPin.pinColor = MKPinAnnotationColorPurple;
+        }
+    
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [rightButton addTarget:nil action:nil forControlEvents:UIControlEventTouchUpInside];
+        MyPin.rightCalloutAccessoryView = rightButton;
+        MyPin.rightCalloutAccessoryView.tag = 1;
+
+    
+        return MyPin;
+    }
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
@@ -213,11 +228,9 @@
     DetalhesViewController *detailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(view.annotation.coordinate.latitude, view.annotation.coordinate.longitude);
     detailsViewController.coordinateMap = &(coordinate);
-    detailsViewController.title = view.annotation.title;        //NAO
-    detailsViewController.subtitulo = view.annotation.subtitle; //NAO
+    detailsViewController.title = view.annotation.title;
+    detailsViewController.subtitulo = view.annotation.subtitle;
     
-    NSLog(@"----------%@", view.annotation.title);
-    NSLog(@"----------%@", view.annotation.subtitle);
     
     
 //    
@@ -273,5 +286,16 @@
     return 0;
 }
 
+-(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager startUpdatingLocation];
+    
+}
+
+-(void) locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    if(status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse){
+        self.mapView.showsUserLocation = YES;
+    }
+}
 
 @end

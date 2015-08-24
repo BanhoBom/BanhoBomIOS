@@ -33,6 +33,7 @@
 
 @property(strong, nonatomic) NSMutableArray *descricao;
 @property(strong, nonatomic) NSMutableDictionary *dataStored;
+@property(strong, nonatomic) NSString *tempNome2;
 
 
 

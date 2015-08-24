@@ -13,4 +13,6 @@
 @property(strong, nonatomic) NSMutableArray *historico;
 @property(strong, nonatomic) NSMutableDictionary *dataStored;
 
+@property(strong, nonatomic)  NSString *tempNome2;
+
 @end
