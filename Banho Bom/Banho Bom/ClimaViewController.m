@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.nomePraia.text = [NSString stringWithFormat:@"Estação: %@", title];
+    self.nomePraia.text = [NSString stringWithFormat:@"%@", title];
     
     [self carregarInformacoesDeTempo];
 }

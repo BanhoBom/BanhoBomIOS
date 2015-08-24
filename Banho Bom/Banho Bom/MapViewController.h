@@ -16,6 +16,5 @@
 
 
 - (IBAction)refresh:(id)sender;
-- (IBAction)historico:(id)sender;
 
 @end

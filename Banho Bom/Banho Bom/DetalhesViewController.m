@@ -18,11 +18,10 @@
 
 @synthesize coordinateMap;
 @synthesize imagePraia, imageOpcao;
-@synthesize estacaoLabel, praiaLabel, mensLabel;
+@synthesize praiaLabel, mensLabel;
 @synthesize title, subtitulo;
 @synthesize latitude, longitude, nomePraia, descricaoPraia, idEstacao, statusEstacao;
-
-
+@synthesize descricao, dataStored;
 
 
 - (void)viewDidLoad {
@@ -33,8 +32,10 @@
     
     //self.praiaLabel.text = title;
     
-    self.estacaoLabel.text = idEstacao;
-    self.praiaLabel.text = nomePraia;
+    self.praiaLabel.text = title;
+    
+    descricao = [[NSMutableArray alloc] init];
+    dataStored = [[NSMutableDictionary alloc] init];
     
     [self status];
     
@@ -43,7 +44,7 @@
 
 -(void)status{
 
-    if ([statusEstacao isEqualToString:@"1"]) {
+    if ([subtitulo isEqualToString:@"Praia Própria para Banho"]) {
         self.mensLabel.text = @"Água Boa";
         imageOpcao.image = [UIImage imageNamed:@"positive.jpg"];
     } else {
@@ -69,12 +70,64 @@
 }
 
 - (IBAction)informacaoButton:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Praia TAL***"
-                                                    message:@"Alguma Coisa sobre a Praia"
-                                                   delegate:nil
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"OK!",nil];
+    
+    // Prepare the link that is going to be used on the GET request
+    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/banhobom3/rest/cliente/coletasMobile"];
+    
+    // Prepare the request object
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
+                                                cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                            timeoutInterval:30];
+    
+    // Prepare the variables for the JSON response
+    NSData *urlData;
+    NSURLResponse *response;
+    NSError *error;
+    
+    // Make synchronous request
+    urlData = [NSURLConnection sendSynchronousRequest:urlRequest
+                                    returningResponse:&response
+                                                error:&error];
+    
+    // Construct a Array around the Data from the response
+    NSArray* object = [NSJSONSerialization
+                       JSONObjectWithData:urlData
+                       options:0
+                       error:&error];
+    
+    
+    // Iterate through the object and print desired results
+    for (int i=0; i < [object count]; i++) {
+        
+        NSString *no = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"nome"], nil];
+        NSString *desc = [NSString stringWithFormat:@"%@", [object[i] objectForKey:@"descricao"], nil];
+        
+        [dataStored setObject:no forKey:@"nome"];
+        [dataStored setObject:desc forKey:@"descricao"];
+        
+        [descricao addObject:[dataStored copy]];
+    }
+    //turn off the network indicator in the status bar
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    
+    
+    for (NSDictionary *row in descricao) {
+        if ([row objectForKey:@"nome"] == nomePraia) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nomePraia
+                                                            message:@"Alguma Coisa sobre a Praia"
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:@"OK!",nil];
+            [alert show];
+        }
+    }
+    
+}
 
-    [alert show];
+- (IBAction)historicoButton:(id)sender {
+    EstatisticaViewController *estatisticaViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EstatisticaViewController"];
+    estatisticaViewController.title = title;
+    [self presentViewController:estatisticaViewController animated:YES completion:nil];
 }
 @end

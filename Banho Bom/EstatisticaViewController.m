@@ -14,14 +14,15 @@
 
 @implementation EstatisticaViewController
 
-@synthesize historico, dataStored;
+@synthesize historico, dataStored, title;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     historico = [[NSMutableArray alloc] init];
     dataStored = [[NSMutableDictionary alloc] init];
-
+    
+    NSLog(@"%@", title);
     
     [self carregarJson];
     
@@ -45,10 +46,16 @@
     NSString *comp = [coletas valueForKey: @"sta"];
     
     if ([comp isEqualToString:@"1"]) {
-        cell.imageView.image = [UIImage imageNamed:@"positive.jpg"];
-    }else
-        cell.imageView.image = [UIImage imageNamed:@"negative.jpg"];
-    
+        UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        [accessoryView setImage:[UIImage imageNamed:@"positive.jpg"]];
+        [cell setAccessoryView:accessoryView];
+        //cell.imageView.image = [UIImage imageNamed:@"positive.jpg"];
+    }else{
+        UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        [accessoryView setImage:[UIImage imageNamed:@"negative.jpg"]];
+        [cell setAccessoryView:accessoryView];
+        //cell.imageView.image = [UIImage imageNamed:@"negative.jpg"];
+    }
     
     //cell.textLabel.text = [NSString stringWithFormat:@"%@",];
     //NSLog(@"--------");

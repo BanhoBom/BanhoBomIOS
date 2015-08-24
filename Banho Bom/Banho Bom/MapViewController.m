@@ -11,7 +11,6 @@
 #import "CustomAnnotation.h"
 #import "Database.h"
 #import "DetalhesViewController.h"
-#import "EstatisticaViewController.h"
 
 
 
@@ -43,7 +42,8 @@
 
 -(void)carregarJson{
     // Prepare the link that is going to be used on the GET request
-    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/banhobom2/rest/cliente/estacoesMobile"];
+    NSURL * url = [[NSURL alloc] initWithString:@"http://env-4818724.jelasticlw.com.br/bb-producao/rest/cliente/estacoesMobile"];
+    
     
     // Prepare the request object
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
@@ -101,15 +101,8 @@
 
 }
 
-
-
 - (IBAction)refresh:(id)sender {
     [self visualizarMap];
-}
-
-- (IBAction)historico:(id)sender {
-    EstatisticaViewController *estatisticaViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"EstatisticaViewController"];
-    [self presentViewController:estatisticaViewController animated:YES completion:nil];
 }
 
 -(void)visualizarMap{
@@ -163,7 +156,10 @@
         /*
          CA.descricaoPraia = descricao;
          */
-        CA.title = codEstacao;
+        
+        
+        CA.title = [NSString stringWithFormat:@"%@ %@", codEstacao, nomePraia];
+        //CA.title = codEstacao;
         CA.idEstacao = codEstacao;
         CA.nomePraia = nomePraia;
         CA.statusEstacao = status;
@@ -220,15 +216,29 @@
     detailsViewController.title = view.annotation.title;        //NAO
     detailsViewController.subtitulo = view.annotation.subtitle; //NAO
     
-    for (NSDictionary *row in praiasLista) {
-        if ([row objectForKey:@"codEstacao"] == view.annotation.title) {
-            detailsViewController.nomePraia = [row objectForKey:@"nomePraia"];
-            detailsViewController.idEstacao = [row objectForKey:@"codEstacao"];
-            detailsViewController.statusEstacao = [row objectForKey:@"status"];
-            
-
-        }
-    }
+    NSLog(@"----------%@", view.annotation.title);
+    NSLog(@"----------%@", view.annotation.subtitle);
+    
+    
+//    
+//    NSString *tempNome = view.annotation.title;
+//    NSArray *parts = [tempNome componentsSeparatedByString:@" "];
+//    NSLog(@" ------:%@:",[NSString stringWithFormat:@"%@",[parts objectAtIndex:1]]);
+//    NSString *tempNome2 = [NSString stringWithFormat:@"%@",[parts objectAtIndex:1]];
+//    //NSLog(@" ------:%@:", tempNome2);
+//   
+//    NSArray *array = [praiasLista copy];
+//    
+//    for (NSDictionary *row in array) {
+//        //NSString *temp = [row objectForKey:@"codEstacao"];
+//        if ([row objectForKey:@"codEstacao"] == tempNome2) {
+//            detailsViewController.nomePraia = [row objectForKey:@"nomePraia"];
+//            detailsViewController.idEstacao = [row objectForKey:@"codEstacao"];
+//            detailsViewController.statusEstacao = [row objectForKey:@"status"];
+//            
+//
+//        }
+//    }
     
         //detailsViewController.descricaoPraia = view.annotation.descricaoPraia;
         //detailsViewController.coordinateMap = &(coordinate);
